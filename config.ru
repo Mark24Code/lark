@@ -1,3 +1,5 @@
-require './app'
+require './api/users'
 
-run Lark::App
+map '/api/v1/users' do
+  run Users
+end
