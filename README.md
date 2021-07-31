@@ -10,7 +10,7 @@ TODO
 * [ ] DB Migration
 * [ ] Log
 * [x] CORS
-* [x] Hot Reloard
+* [x] HReloard
 * [ ] Test
 * [ ] CI/CD
 * [x] Multi Http Path&Verb
