@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../base_app'
+require 'app/base_app'
 require 'sinatra/json'
 
 class Users < BaseApp
