@@ -1,9 +1,11 @@
 # frozen_string_literal: true
-require_relative './helper'
-require 'app/settings/config'
+require_relative './prepare'
+require 'app/setting/config'
+require 'app/app_logger'
 require 'app/db/connect'
-require 'app/api/users'
+require 'app/api/article'
 
+# map and plugin apps
 map '/api/v1/users' do
-  run Users
+  run ArticleApi
 end

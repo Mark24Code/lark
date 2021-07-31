@@ -2,13 +2,15 @@
 
 micro web framework
 
-TODO
+# Features TODO
 
 * [x] Modular App
 * [x] Router Mapper
+* [ ] Model
 * [ ] DB
-* [ ] DB Migration
-* [ ] Log
+* [ ] DB Migrator
+* [ ] DB Migrator CLI
+* [x] Log
 * [x] CORS
 * [x] HReloard
 * [ ] Test
@@ -17,3 +19,22 @@ TODO
 * [x] Rakefile
 * [ ] Docker
 * [ ] CLI
+
+# Dev
+
+Run develop server
+`rake dev`
+
+
+# Production 
+
+Run production
+`rake run`
+
+# DB
+
+## Prepare
+TODO
+* init db
+
+* migration

@@ -47,6 +47,7 @@ GEM
     sinatra-cors (1.2.0)
     sinatra-reloader (1.0)
       sinatra-contrib
+    sqlite3 (1.4.2)
     thin (1.8.1)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -69,6 +70,7 @@ DEPENDENCIES
   sinatra-contrib
   sinatra-cors
   sinatra-reloader
+  sqlite3
   thin
 
 BUNDLED WITH

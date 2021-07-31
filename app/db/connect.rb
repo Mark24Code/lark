@@ -1,10 +1,10 @@
 require 'sequel'
-require 'app/settings/config'
+require 'app/setting/config'
 
 module Lark
   module DataBase
-    database_config = Settings::DATABASE_CONFIG
+    db_url = Setting::DATABASE_URL
     # https://sequel.jeremyevans.net/rdoc/files/doc/opening_databases_rdoc.html
-    DB = Sequel.connect(database_config)
+    DB = Sequel.connect(db_url)
   end
 end
