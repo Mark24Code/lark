@@ -2,10 +2,14 @@ require_relative '../base_app'
 
 class Users < BaseApp
   get '' do
-    'users 23333'
+    {
+      name: 'Users List'
+    }
   end
 
   get '/user' do
-    'user profile'
+    {
+      name: 'User Profile'
+    }
   end
 end
