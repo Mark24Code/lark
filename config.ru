@@ -1,7 +1,9 @@
 require 'sinatra/base'
-require './api/v1'
+
+require './api_v1/users.rb'
+
 
 map('/api/v1') do
-  run API_V1
+  run Users
 end
 
