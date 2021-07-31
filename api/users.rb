@@ -1,15 +1,16 @@
 require_relative '../base_app'
+require 'sinatra/json'
 
 class Users < BaseApp
   get '' do
-    {
-      name: 'Users List'
-    }
+    json :foo => 'bar'
   end
 
   get '/user' do
-    {
-      name: 'User Profile'
+
+    result = {
+      name: 'user profile'
     }
+    json result
   end
 end

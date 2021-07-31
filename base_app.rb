@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/cors'
+require 'sinatra/multi_route'
 require 'logger'
-require 'json'
 
 class BaseApp < Sinatra::Base
   configure :development do
@@ -16,13 +16,12 @@ class BaseApp < Sinatra::Base
   set :allow_headers, "content-type,if-modified-since,allow_headers,authorization"
   # set :expose_headers, "location,link"
 
-
+  register Sinatra::MultiRoute
   before do
     content_type :json
   end
 
   after do
-    response.body = response.body.to_json
-    logger.info response.body
+    # logger.info response.body
   end
 end
