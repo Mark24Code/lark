@@ -9,14 +9,15 @@ require 'json'
 class ArticleApi < BaseApp
   get '/:article_id' do
     puts '>>>>article get'
-    article_id = params[:id]
+    article_id = params[:article_id]
     post = Articles.where(id: article_id).first
 
     resp = {
+      id: post.id,
       title: post.title
     }
 
-    jn resp
+    json resp
   end
 
   post '/new' do
