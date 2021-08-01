@@ -1,37 +1,42 @@
-port = 4567
-
-task :dev do
-  require 'socket'
-  my_address = Socket.ip_address_list.detect(&:ipv4_private?)
-
-  puts "server run #{my_address.ip_address}:#{port}"
-  exec("APP_ENV=development rackup -o 0.0.0.0 -p #{port}")
+namespace :utils do
+  desc 'generate random key'
+  task :get_random_key do
+    require 'securerandom'
+    puts SecureRandom.hex(64)
+  end
 end
 
-task :run do
-  exec("APP_ENV=production rackup -o 0.0.0.0 -p #{port}")
+namespace :app do
+  port = 4567
+
+  desc 'Run development server'
+  task :dev do
+    require 'socket'
+    my_address = Socket.ip_address_list.detect(&:ipv4_private?)
+
+    puts "server run #{my_address.ip_address}:#{port}"
+    exec("APP_ENV=development rackup -o 0.0.0.0 -p #{port}")
+  end
+
+  desc 'Run production server'
+  task :run do
+    exec("APP_ENV=production rackup -o 0.0.0.0 -p #{port}")
+  end
 end
 
-task :get_random_key do
-  require 'securerandom'
-  puts SecureRandom.hex(64)
+namespace :db do
+  desc 'Run migrations'
+  task :migrate, [:version] do |t, args|
+    # http://sequel.jeremyevans.net/rdoc/files/doc/migration_rdoc.html
+    require 'sequel/core'
+    Sequel.extension :migration
+    version = args[:version].to_i if args[:version]
+    Sequel.connect(ENV.fetch('DATABASE_URL')) do |db|
+      Sequel::Migrator.run(db, 'app/db/migrations', target: version)
+    end
+  end
 end
 
-task :migrate do
-  require_relative './prepare'
-  puts '...'
-  puts ENV['DATABASE_URL']
-  puts $LARK_WORKDIR
-  path_to_migration = File.expand_path(File.join($LARK_WORKDIR, './app/db/migrations'))
-  puts path_to_migration
-  DATABASE_URL = ENV['DATABASE_URL']
-  puts DATABASE_URL
-
-  cmd = "sequel -m #{path_to_migration} #{DATABASE_URL}"
-  puts cmd
-  exec(cmd)
-
-  # TODO 无法eate data base need restart maybe
-end
 
 task default: %w[dev]
+

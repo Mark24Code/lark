@@ -6,6 +6,6 @@ require 'app/db/connect'
 require 'app/api/article'
 
 # map and plugin apps
-map '/api/v1/users' do
+map '/api/v1/articles' do
   run ArticleApi
 end

@@ -6,19 +6,26 @@ micro web framework
 
 * [x] Modular App
 * [x] Router Mapper
-* [ ] Model
-* [ ] DB
-* [ ] DB Migrator
-* [ ] DB Migrator CLI
+* [x] Model
+* [x] DB
+* [x] DB Migrator
+* [x] DB Migrator CLI
 * [x] Log
 * [x] CORS
-* [x] HReloard
+* [x] HotReloard
 * [ ] Test
 * [ ] CI/CD
 * [x] Multi Http Path&Verb
 * [x] Rakefile
 * [ ] Docker
 * [ ] CLI
+
+
+----
+
+* [ ] ENV intro
+* [ ] ENV helper CLI
+
 
 # Dev
 

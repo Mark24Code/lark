@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/cors'
 require 'sinatra/multi_route'
-require 'setting/config'
+require 'app/setting/config'
 require 'app/app_logger'
 
 class BaseApp < Sinatra::Base
