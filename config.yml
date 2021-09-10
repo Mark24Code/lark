@@ -1,0 +1,23 @@
+default: &common_settings
+  # puma server
+  bind: <%= ENV.fetch('HOST') { '0.0.0.0' } %> 
+  port: <%= ENV.fetch('PORT') { 3000 } %> 
+  secrets: <%= ENV.fetch('SECRETS') { 'YOU CANNT GUESS ME'} %>
+  max_threads: <%= ENV.fetch('MAX_THREADS') { 5 } %>
+
+  # database
+  adapter: postgres
+  database_host: <%= ENV['DB_HOST'] %>
+  database_port: <%= ENV['DB_PORT'] %>
+  database_username: <%= ENV['DB_USER'] %> 
+  database_password: <%= ENV['DB_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+
+development:
+  <<: *common_settings
+  foo: development_bar
+
+
+production:
+  <<: *common_settings
+  foo: production_bar

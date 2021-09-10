@@ -1,11 +1,14 @@
-# frozen_string_literal: true
 require_relative './prepare'
-require 'app/setting/config'
-require 'app/app_logger'
-require 'app/db/connect'
-require 'app/api/article'
+require_relative 'db/connect'
 
-# map and plugin apps
-map '/api/v1/articles' do
-  run ArticleApi
+require 'app'
+require 'api_v1/demo'
+
+# Secure Middleware
+# require 'rack/protection'
+# use Rack::Protection
+run MyApp
+
+map '/api/v1/demo' do
+  run DemoApi
 end
