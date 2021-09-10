@@ -4,6 +4,6 @@ class MyApp < BaseApp
     locals = {
       content: "Welcome to Lark"
     }
-    erb :welcome, :layout => 'layout', :locals => locals
+    erb :welcome, :layout => :'base', :locals => locals
   end
 end
